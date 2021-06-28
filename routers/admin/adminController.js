@@ -136,6 +136,7 @@ let history_list = async (req,res) => {
     let result = await history.findAll({})
     res.render('./admin/history/history.html',{
         result:result,
+        userid:req.session.uid
 
     })
 }
@@ -144,6 +145,7 @@ let skill_list = async (req,res) => {
     let result = await skills.findAll({})
     res.render('./admin/skill/skill.html',{
         result:result,
+        userid:req.session.uid
 
     })
 }
@@ -341,7 +343,7 @@ let create_list = async (req,res)=>{
 let user_list = async (req,res) => {
     let result = await users.findAll({})
     console.log(result)
-    res.render('./admin/user/user_list.html',{list:result, userid:req.session.uid})
+    res.render('./admin/user/user_list.html',{list:result,  userid:req.session.uid})
 }
 
 
